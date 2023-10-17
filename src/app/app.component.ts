@@ -11,6 +11,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   public bingoNumbers: BingoNumber[] = [];
+  private isDrawingNumber: boolean = false;
   private _drawnBingoNumberSubject: BehaviorSubject<BingoNumber | undefined> =
     new BehaviorSubject<BingoNumber | undefined>(undefined);
 
@@ -38,6 +39,10 @@ export class AppComponent implements OnInit {
   }
 
   public async drawBingoNumber(): Promise<void> {
+    if (this.isDrawingNumber) {
+      return;
+    }
+    this.isDrawingNumber = true;
     const availableNumbers = this.bingoNumbers.filter((x) => !x.drawn);
     if (availableNumbers.length === 0) {
       return; // All numbers are drawn.
@@ -57,7 +62,7 @@ export class AppComponent implements OnInit {
       // Optional: You can log the selected number to the console.
       console.log(`Selected Bingo Number: ${selectedNumber.number}`);
 
-      await this.sleep(50); // Wait for 50 milliseconds before selecting the next number
+      await this.sleep(30); // Wait for 50 milliseconds before selecting the next number
     }
 
     if (selectedNumber) {
@@ -65,6 +70,8 @@ export class AppComponent implements OnInit {
       console.log('Selected Bingo Number: ', selectedNumber);
       this._drawnBingoNumberSubject.next(selectedNumber);
     }
+
+    this.isDrawingNumber = false;
   }
 
   private sleep(ms: number): Promise<void> {
