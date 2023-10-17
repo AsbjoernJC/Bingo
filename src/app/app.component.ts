@@ -12,11 +12,22 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AppComponent implements OnInit {
   private isDrawingNumber: boolean = false;
   public bingoNumbers: BingoNumber[] = [];
-  public animating: boolean = true;
-  public meme: string =
-    'https://media.tenor.com/kcpKqzMdJu4AAAAd/bowling-ball-bowling-pin.gif';
 
-  public memes: any = [
+  private _animating: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
+
+  public get animating(): boolean {
+    return this._animating.value;
+  }
+
+  private _meme: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
+  public get meme(): string {
+    return this._meme.value;
+  }
+
+  public memes: Meme[] = [
     {
       number: 1,
       meme: 'https://media.tenor.com/kcpKqzMdJu4AAAAd/bowling-ball-bowling-pin.gif',
@@ -45,9 +56,6 @@ export class AppComponent implements OnInit {
   public get drawnBingoNumber(): BehaviorSubject<BingoNumber | undefined> {
     return this._drawnBingoNumberSubject;
   }
-
-  public drawnBingoNumber$: Observable<BingoNumber | undefined> =
-    this.drawnBingoNumber.asObservable();
 
   ngOnInit(): void {
     for (let i = 1; i <= 90; i++) {
@@ -82,6 +90,8 @@ export class AppComponent implements OnInit {
     let finalNumber: BingoNumber =
       availableNumbers[Math.floor(Math.random() * availableNumbers.length)];
 
+    this.tryStartAnimation(finalNumber);
+
     while (Date.now() < endTime) {
       const randomIndex = Math.floor(Math.random() * availableNumbers.length);
       selectedNumber = availableNumbers[randomIndex];
@@ -99,6 +109,15 @@ export class AppComponent implements OnInit {
     this._drawnBingoNumberSubject.next(finalNumber);
 
     this.isDrawingNumber = false;
+    this._animating.next(false);
+  }
+
+  private tryStartAnimation(finalNumber: BingoNumber): void {
+    const meme = this.memes.find((x) => x.number === finalNumber.number);
+    if (meme !== undefined) {
+      this._meme.next(meme.meme);
+      this._animating.next(true);
+    }
   }
 
   private sleep(ms: number): Promise<void> {
@@ -114,3 +133,8 @@ export class BingoNumber {
     this.number = Number;
   }
 }
+
+export type Meme = {
+  number: number;
+  meme: string;
+};
