@@ -1,3 +1,4 @@
+
 <div class="page-container">
   <div class="bingo-container">
     <div class="all-numbers">
@@ -8,14 +9,14 @@
       </div>
     </div>
     <div class="action-container half">
+        <img class="meme overlay" [src]="meme" *ngIf="animating" />
       <h1 class="drawnNumber">{{drawnBingoNumber.value === undefined ? "BINGO" : drawnBingoNumber.value.number}}</h1>
       <button class="action-button" (click)="drawBingoNumber()">
         Træk et nummer
       </button>
     </div>
   </div>
-  <div class="memes">
 
-  </div>
+
 
 </div>

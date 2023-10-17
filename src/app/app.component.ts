@@ -10,8 +10,34 @@ import { BehaviorSubject, Observable } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  public bingoNumbers: BingoNumber[] = [];
   private isDrawingNumber: boolean = false;
+  public bingoNumbers: BingoNumber[] = [];
+  public animating: boolean = true;
+  public meme: string = '../assets/69.gif';
+
+  public memes: any = [
+    {
+      number: 1,
+      meme: 'https://media.tenor.com/kcpKqzMdJu4AAAAd/bowling-ball-bowling-pin.gif',
+    },
+    {
+      number: 10,
+      meme: 'https://media.tenor.com/fo0rUUBalvoAAAAC/bowling-ball-crash.gif',
+    },
+    {
+      number: 15,
+      meme: 'https://media.tenor.com/luPargXFICQAAAAd/walking-kitchen.gif',
+    },
+    {
+      number: 21,
+      meme: 'https://media.tenor.com/rOaZl9xBDfwAAAAd/vine-21.gif',
+    },
+    {
+      number: 69,
+      meme: '../assets/69.gif',
+    },
+  ];
+
   private _drawnBingoNumberSubject: BehaviorSubject<BingoNumber | undefined> =
     new BehaviorSubject<BingoNumber | undefined>(undefined);
 
@@ -52,6 +78,8 @@ export class AppComponent implements OnInit {
     const endTime = startTime + Math.floor(Math.random() * 2000) + 2000; // Random duration between 3-5 seconds
 
     let selectedNumber: BingoNumber | undefined;
+    let finalNumber: BingoNumber =
+      availableNumbers[Math.floor(Math.random() * availableNumbers.length)];
 
     while (Date.now() < endTime) {
       const randomIndex = Math.floor(Math.random() * availableNumbers.length);
@@ -65,11 +93,9 @@ export class AppComponent implements OnInit {
       await this.sleep(30); // Wait for 50 milliseconds before selecting the next number
     }
 
-    if (selectedNumber) {
-      selectedNumber.drawn = true;
-      console.log('Selected Bingo Number: ', selectedNumber);
-      this._drawnBingoNumberSubject.next(selectedNumber);
-    }
+    finalNumber.drawn = true;
+    console.log('Selected Bingo Number: ', finalNumber);
+    this._drawnBingoNumberSubject.next(finalNumber);
 
     this.isDrawingNumber = false;
   }
