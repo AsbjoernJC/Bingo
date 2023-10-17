@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
   private isDrawingNumber: boolean = false;
   public bingoNumbers: BingoNumber[] = [];
   public animating: boolean = true;
-  public meme: string = '../assets/69.gif';
+  public meme: string =
+    'https://media.tenor.com/kcpKqzMdJu4AAAAd/bowling-ball-bowling-pin.gif';
 
   public memes: any = [
     {
