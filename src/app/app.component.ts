@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Memes } from './memes';
 
 @Component({
   selector: 'app-root',
@@ -27,28 +28,7 @@ export class AppComponent implements OnInit {
     return this._meme.value;
   }
 
-  public memes: Meme[] = [
-    {
-      number: 1,
-      meme: 'https://media.tenor.com/kcpKqzMdJu4AAAAd/bowling-ball-bowling-pin.gif',
-    },
-    {
-      number: 10,
-      meme: 'https://media.tenor.com/fo0rUUBalvoAAAAC/bowling-ball-crash.gif',
-    },
-    {
-      number: 15,
-      meme: 'https://media.tenor.com/luPargXFICQAAAAd/walking-kitchen.gif',
-    },
-    {
-      number: 21,
-      meme: 'https://media.tenor.com/rOaZl9xBDfwAAAAd/vine-21.gif',
-    },
-    {
-      number: 69,
-      meme: '../assets/69.gif',
-    },
-  ];
+  public memes: Meme[] = new Memes().memes;
 
   private _drawnBingoNumberSubject: BehaviorSubject<BingoNumber | undefined> =
     new BehaviorSubject<BingoNumber | undefined>(undefined);
@@ -84,7 +64,7 @@ export class AppComponent implements OnInit {
     }
 
     const startTime = Date.now();
-    const endTime = startTime + Math.floor(Math.random() * 2000) + 2000; // Random duration between 3-5 seconds
+    const endTime = startTime + Math.floor(Math.random() * 1500) + 1500; // Random duration between 3-5 seconds
 
     let selectedNumber: BingoNumber | undefined;
     let finalNumber: BingoNumber =
