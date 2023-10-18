@@ -55,12 +55,13 @@ header {
 .bingo-ball {
   background-color: #4ca1dc;
   border-radius: 30px;
-  height: 60px;
+  // height: 60px;
   width: 60px;
+  aspect-ratio: 1;
   display:flex;
   justify-content: center;
   align-items: center;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .action-container {
@@ -115,4 +116,8 @@ header {
 
 .black-text {
   color: black !important;
+}
+
+.gold-text {
+  color: #c6aa5c;
 }
