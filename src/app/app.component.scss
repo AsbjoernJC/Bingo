@@ -53,8 +53,10 @@ header {
 }
 
 .bingo-ball {
-  background-color: #4ca1dc;
+  background-color: #f07306;
+  border: 2px #b95a07 solid;
   border-radius: 30px;
+  color: white;
   // height: 60px;
   width: 60px;
   aspect-ratio: 1;
@@ -89,15 +91,16 @@ header {
   background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
                 radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%) !important;
   font-size: 600;
+  border-color: #c6aa5c;
 }
 
 .action-button {
   grid-area: button;
   font-size: 40px;
   border-radius: 20px;
-  background-color: #4ca1dc;
+  border: 2px #b95a07 solid;
+  background-color: #f07306;
   color: #f5f5f5;
-  border: none;
   padding: 10px;
   cursor: pointer;
 }
