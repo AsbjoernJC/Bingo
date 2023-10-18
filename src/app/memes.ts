@@ -38,6 +38,10 @@ export class Memes {
       meme: 'https://media.tenor.com/6lota1QE_fQAAAAC/screaming-eleven.gif',
     },
     {
+      number: 12,
+      meme: 'https://media.tenor.com/qhCloXySAxwAAAAC/clock.gif'
+    },
+    {
       number: 13,
       meme: 'https://media.tenor.com/qQMIkScfFswAAAAd/its-friday-the13th-dancing.gif',
     },
@@ -48,6 +52,10 @@ export class Memes {
     {
       number: 17,
       meme: 'https://media.tenor.com/zOgBDchsoJYAAAAC/abba-dancing-queen.gif',
+    },
+    {
+      number: 18,
+      meme: 'https://media.tenor.com/xp7gts2rcbwAAAAC/no-access-over18.gif',
     },
     {
       number: 21,
@@ -66,6 +74,14 @@ export class Memes {
       meme: 'https://media.tenor.com/7o97DimLGe0AAAAC/24k-magic-bruno-mars.gif',
     },
     {
+      number: 25,
+      meme: 'https://media.tenor.com/24zwL4R-hYkAAAAC/spongebob-patrick.gif',
+    },
+    {
+      number: 32,
+      meme: 'https://media.tenor.com/cTB5hFWFtPMAAAAd/nice-cock-bowling.gif',
+    },
+    {
       number: 42,
       meme: 'https://media.tenor.com/T-weCEHq2BgAAAAC/life-the-universe-and-everything-hitchhikers-guide-to-the-galaxy.gif',
     },
@@ -74,12 +90,20 @@ export class Memes {
       meme: 'https://media.tenor.com/s5KWdhN1PfgAAAAd/gold-arabesque.gif',
     },
     {
+      number: 50,
+      meme: 'https://media.tenor.com/XBy132NLrxMAAAAC/birthday-50cent.gif',
+    },
+    {
       number: 53,
       meme: 'https://i.giphy.com/media/n43Kx7PeptN0k/giphy-downsized-large.gif',
     },
     {
       number: 65,
       meme: 'https://media1.giphy.com/media/YWf50NNii3r4k/giphy.gif?cid=ecf05e47lo65qtlvirrtjz7rowdoh0h4wt7zxv6zpndrukla&ep=v1_gifs_search&rid=giphy.gif&ct=g',
+    },
+    {
+      number: 66,
+      meme: 'https://media.tenor.com/LBWyQg647MoAAAAC/execute-order66-order66.gif',
     },
     {
       number: 69,
@@ -92,6 +116,10 @@ export class Memes {
     {
       number: 79,
       meme: 'https://media.tenor.com/LM8RQJLOQNMAAAAC/789-why-was6afraid-of7.gif',
+    },
+    {
+      number: 87,
+      meme: 'https://media.tenor.com/8fevbsk8n-8AAAAC/wasthatabiteof87.gif'
     },
     {
       number: 89,
