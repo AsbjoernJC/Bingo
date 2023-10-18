@@ -60,6 +60,10 @@ export class AppComponent implements OnInit {
     this.isDrawingNumber = true;
     const availableNumbers = this.bingoNumbers.filter((x) => !x.drawn);
     if (availableNumbers.length === 0) {
+      this._meme.next(
+        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW53azBjYjJyaTQ4cWVwODh6MmIzY3c5ZTY5eDZ5bXhldjkzZm5yciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IwAZ6dvvvaTtdI8SD5/giphy.gif'
+      );
+      this._animating.next(true);
       return; // All numbers are drawn.
     }
 
