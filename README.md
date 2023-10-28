@@ -1,5 +1,8 @@
 # Bingo
 
+#Preview the website
+https://white-cliff-055ee5c03.4.azurestaticapps.net/
+
 # Prerequisites:
 1. Open the project
 2. @angular/cli https://www.npmjs.com/package/@angular/cli
