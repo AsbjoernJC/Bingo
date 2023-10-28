@@ -64,11 +64,12 @@ export class AppComponent implements OnInit {
         'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW53azBjYjJyaTQ4cWVwODh6MmIzY3c5ZTY5eDZ5bXhldjkzZm5yciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IwAZ6dvvvaTtdI8SD5/giphy.gif'
       );
       this._animating.next(true);
+      this._drawnBingoNumberSubject.next(undefined);
       return; // All numbers are drawn.
     }
 
     const startTime = Date.now();
-    const endTime = startTime + Math.floor(Math.random() * 1500) + 1500; // Random duration between 3-5 seconds
+    const endTime = startTime + Math.floor(Math.random() * 2000) + 1500; // Random duration between 3-5 seconds
 
     let selectedNumber: BingoNumber | undefined;
     let finalNumber: BingoNumber =
