@@ -57,6 +57,7 @@ export class AppComponent implements OnInit {
     if (this.isDrawingNumber) {
       return;
     }
+    this._animating.next(false);
     this.isDrawingNumber = true;
     const availableNumbers = this.bingoNumbers.filter((x) => !x.drawn);
     if (availableNumbers.length === 0) {
@@ -94,7 +95,6 @@ export class AppComponent implements OnInit {
     this._drawnBingoNumberSubject.next(finalNumber);
 
     this.isDrawingNumber = false;
-    this._animating.next(false);
   }
 
   private tryStartAnimation(finalNumber: BingoNumber): void {
