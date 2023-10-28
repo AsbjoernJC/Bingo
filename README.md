@@ -1,6 +1,6 @@
 # Bingo
 
-#Preview the website
+# Preview the website
 https://white-cliff-055ee5c03.4.azurestaticapps.net/
 
 # Prerequisites:
